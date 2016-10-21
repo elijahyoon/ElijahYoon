@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Elijah Yoon's Website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elijah Yoon</title>
+
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="Elijah Yoon">
+  <meta name="theme-color" content="#4285f4">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Elijah Yoon">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#4285f4">
+
+  <!-- Material Design Lite -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.grey-indigo.min.css" />
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+  <!-- App Styling -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,900">
+  <link rel="stylesheet" href="styles/main.css">
+
+  <link rel="icon" href="http://cdn.jsdelivr.net/emojione/assets/png/1f355.png">
+</head>
+<body ng-controller="EYCtrl" id="main-content" class="mdl-grid mdl-grid--no-spacing mdl-color--indigo">
+
+  <!-- Top padding -->
+  <div class="mdl-cell mdl-cell--12-col"></div>
+
+  <!-- Profile image -->
+  <div class="mdl-cell mdl-cell--5-col mdl-cell--12-col-tablet mdl-cell--middle" ng-cloak>
+    <img id="profile" ng-src="{{profile}}" alt="Profile"/>
+    <label id="profile-toggle" class="mdl-switch mdl-js-switch">
+      <input type="checkbox" class="mdl-switch__input" ng-model="colorize" ng-change="switchPic()">
+      <span class="mdl-switch__label"></span>
+    </label>
+  </div>
+
+  <!-- About blurb -->
+  <div class="mdl-cell mdl-cell--7-col mdl-cell--6-col-tablet mdl-cell--1-offset-tablet
+   mdl-cell--2-col-phone mdl-cell--1-offset-phone mdl-cell--middle" ng-cloak>
+     <div ng-hide="showNote">
+       <p id="about">{{about}}</p>
+       <div id="links">
+         <button id="mail-btn" class="mdl-button mdl-js-button mdl-button--icon"
+         ng-click="goTo('mailto:mail@elijahyoon.com')">
+           <i class="material-icons">email</i>
+           <a ng-href="google.com"></a>
+         </button>
+         <div class="mdl-tooltip" for="mail-btn">
+           Email me
+         </div>
+         <button id="instagram-btn" class="mdl-button mdl-js-button mdl-button--icon"
+         ng-click="goTo('https://www.instagram.com/yoonelijah')">
+           <i class="material-icons">camera_alt</i>
+         </button>
+         <div class="mdl-tooltip" for="instagram-btn">
+           Instagram
+         </div>
+         <button id="github-btn" class="mdl-button mdl-js-button mdl-button--icon"
+         ng-click="goTo('https://github.com/elijahyoon/')">
+           <i class="material-icons">code</i>
+         </button>
+         <div class="mdl-tooltip" for="github-btn">
+           GitHub
+         </div>
+         <button id="note-btn" class="mdl-button mdl-js-button mdl-button--icon"
+         ng-click="openNote()">
+           <i class="material-icons">note_add</i>
+         </button>
+         <div class="mdl-tooltip" for="note-btn">
+           Notes
+         </div>
+       </div>
+     </div>
+     <div ng-show="showNote">
+       <div id="notes-field" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+         <textarea id="notes" class="mdl-textfield__input" type="text" rows= "10" ng-model="note" ng-disabled="noteDisabled"></textarea>
+         <label class="mdl-textfield__label" for="notes">Leave a note ...</label>
+       </div>
+       <div id="note-btns">
+         <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="closeNotes()">
+          back
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" ng-click="saveNote()" ng-disabled="noteDisabled">
+          save
+        </button>
+       </div>
+    </div>
+  </div>
+
+  <!-- Bottom padding -->
+  <div class="mdl-cell mdl-cell--12-col"></div>
+
+  <!-- Angular -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+  <!-- Initialize Firebase -->
+  <script>
+    var config = {
+      apiKey: "AIzaSyDm4eSakx7jJrvSpP2eWxUCU_16xIONJIU",
+      authDomain: "elijahyoon-bae55.firebaseapp.com",
+      databaseURL: "https://elijahyoon-bae55.firebaseio.com",
+      storageBucket: "elijahyoon-bae55.appspot.com",
+      messagingSenderId: "766870261042"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <!-- Angular Firebase -->
+  <script src="https://cdn.firebase.com/libs/angularfire/2.0.2/angularfire.min.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>

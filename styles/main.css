@@ -1,0 +1,55 @@
+html, body {
+  font-family: 'Lato', 'Helvetica', sans-serif;
+}
+
+#main-content {
+  max-width: 850px;
+}
+
+#profile {
+  margin: auto;
+  display: block;
+  border-radius: 100px;
+  height: 200px;
+  width: 200px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#profile-toggle {
+  margin-left: 50%;
+  left: -18px;
+  margin-top: 20px;
+  width: auto;
+}
+
+#about {
+  text-align: center;
+  display: block;
+  color: white;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#links {
+  margin-top: 35px;
+  text-align: center;
+  display: block;
+  color: white;
+}
+
+#links > button {
+  margin: 25px;
+}
+
+#notes-field {
+  width: 100%;
+  color: #ddd;
+}
+
+#note-btns {
+  text-align: right;
+}
+
+.mdl-button {
+  color: #fff;
+}
