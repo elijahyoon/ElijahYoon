@@ -42,8 +42,9 @@ function($scope, $http, $window, $firebaseObject, $firebaseAuth) {
     $scope.showNote = false;
   };
 
-  // Note text field disabled until load time
+  // Note text field and save button disabled until load time
   $scope.noteDisabled = true;
+  $scope.note = "Loading ...";
 
   // Firebase anonymous auth
   // var auth = $firebaseAuth();
@@ -60,18 +61,20 @@ function($scope, $http, $window, $firebaseObject, $firebaseAuth) {
   // Bind data after retrieval
   noteObj.$loaded().then(function() {
     $scope.note = noteObj.$value;
-    if($scope.note != null && $scope.note !== "") {
-      angular.element(document.querySelector('#notes-field')).addClass('is-dirty');
-    }
     $scope.noteDisabled = false;
   });
 
   // Push changes to server
   $scope.saveNote = function() {
     $scope.noteDisabled = true;
-    noteObj.$value = $scope.note;
+    noteObj.$value = $scope.newNote;
+
+    // Update and reset text field
     noteObj.$save().then(function(ref) {
       $scope.noteDisabled = false;
+      $scope.note = $scope.newNote;
+      $scope.newNote = "";
+      angular.element(document.querySelector('#notes-field')).removeClass('is-dirty');
     }, function(error) {
       console.log("Error:", error);
     });
