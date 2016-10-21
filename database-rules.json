@@ -1,6 +1,6 @@
 {
   "rules": {
-    "messages": {
+    "note": {
       ".read": "true",
       ".write": "true"
     }

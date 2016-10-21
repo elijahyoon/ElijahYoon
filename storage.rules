@@ -1,6 +1,6 @@
 service firebase.storage {
   match /b/elijahyoon-bae55.appspot.com/o {
-    match /msg {
+    match /note {
       allow read, write: if true;
     }
   }
