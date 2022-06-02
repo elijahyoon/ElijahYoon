@@ -33,7 +33,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,900">
   <link rel="stylesheet" href="styles/main.css">
 
-  <link rel="icon" href="http://emojipedia-us.s3.amazonaws.com/cache/91/76/9176e426b0ba58cd75227f013754abac.png">
+  <link rel="icon" href="http://cdn.jsdelivr.net/emojione/assets/png/1f355.png">
 </head>
 <body ng-controller="EYCtrl" id="main-content" class="mdl-grid mdl-grid--no-spacing mdl-color--indigo">
 
@@ -90,7 +90,7 @@
        <p id="note" ng-hide="note===''">"{{note}}"</p>
        <div id="notes-field" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
          <textarea class="mdl-textfield__input" type="text" rows= "3" ng-model="newNote" ng-disabled="noteDisabled"></textarea>
-         <label class="mdl-textfield__label" for="notes">Leave a note </label>
+         <label class="mdl-textfield__label" for="notes">Leave a public note ... </label>
        </div>
        <div id="note-btns">
          <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="closeNotes()">
