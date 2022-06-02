@@ -87,9 +87,10 @@
        </div>
      </div>
      <div ng-show="showNote">
+       <p id="note" ng-hide="note===''">"{{note}}"</p>
        <div id="notes-field" class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-         <textarea id="notes" class="mdl-textfield__input" type="text" rows= "10" ng-model="note" ng-disabled="noteDisabled"></textarea>
-         <label class="mdl-textfield__label" for="notes">Leave a note ...</label>
+         <textarea class="mdl-textfield__input" type="text" rows= "3" ng-model="newNote" ng-disabled="noteDisabled"></textarea>
+         <label class="mdl-textfield__label" for="notes">Leave a public note ... </label>
        </div>
        <div id="note-btns">
          <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="closeNotes()">
